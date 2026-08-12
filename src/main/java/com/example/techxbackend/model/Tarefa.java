@@ -20,4 +20,6 @@ public class Tarefa {
     private String nome;
     private String descricao;
     private String lembrete;
+
+    private Boolean checked = false;
 }

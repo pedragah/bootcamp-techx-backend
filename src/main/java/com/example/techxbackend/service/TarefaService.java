@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +23,11 @@ public class TarefaService {
 
     public void deleteTarefa(Long id){
         tarefaRepository.deleteById(id);
+    }
+
+    public void checkTarefa(Long id, Boolean isChecked){
+        Tarefa tarefa = tarefaRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
+        tarefa.setChecked(isChecked);
+        tarefaRepository.save(tarefa);
     }
 }

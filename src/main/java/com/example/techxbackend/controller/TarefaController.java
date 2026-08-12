@@ -30,4 +30,9 @@ public class TarefaController {
         tarefaService.deleteTarefa(id);
     }
 
+    @PutMapping("/{id}/check/{checked}")
+    public void checkTarefa(@PathVariable Long id, @PathVariable Boolean checked){
+        tarefaService.checkTarefa(id, checked);
+    }
+
 }
